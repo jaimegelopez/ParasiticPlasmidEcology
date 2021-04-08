@@ -188,13 +188,14 @@ genus_ylabel = {'$10^{-2}$','$10^{-1}$','$10^0$'};
 axes(Fig4ax(3));
 hold on
 
+%% Plot escherichia pmfs
+
 %Get escherichia genomes and compute pmf with arbitrary exponent
 taxa_table = filt_origin_table(strcmp(filt_origin_table.genus,'escherichia'),:);
 [ecoli_pmf,ecoli_x] = get_data_pmf(taxa_table.n_plasmids,count_cutoff);
 ecoli_max = length(ecoli_pmf) - 1;
 [pos_ecoli_pmf,pos_ecoli_par] = fit_var_epis_pmf(ecoli_pmf,neut_exp_vec);
 
-%% Plot escherichia pmfs
 patchline(ecoli_x,ecoli_pmf,'linestyle','-','edgecolor','k');
 scatter(ecoli_x,ecoli_pmf,0.7,'ko');
 patchline(ecoli_x,pos_ecoli_pmf(ecoli_x+1),'linestyle','-','edgecolor','r','edgealpha',alphaval);

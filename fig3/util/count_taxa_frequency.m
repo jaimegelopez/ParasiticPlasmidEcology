@@ -1,5 +1,7 @@
 function [taxa,counts] = count_taxa_frequency(tbl,level)
 
+%Counts frequency of the different taxa
+
 taxa = unique(tbl{:,level});
 counts = zeros(size(taxa));
 for i = 1:length(taxa)

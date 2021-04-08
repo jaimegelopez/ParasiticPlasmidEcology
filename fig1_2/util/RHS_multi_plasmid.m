@@ -11,6 +11,7 @@ vv = sv(type_combo_index(:,1)).*sv(type_combo_index(:,2));
 %Get nutrient
 c = y(end);
 
+%Compute RHS
 dsv = alpha.*Fv.*sv.*c + gamma*N*vv + alpha.*c.*rl.*K*sv - Dv.*sv;
 
 dc = Gamma - sum(alpha.*Fv.*sv.*c);
